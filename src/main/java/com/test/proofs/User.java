@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("Users")
 public class User  {
 
+
     @Id
     private String id;
     private String username;
@@ -13,7 +14,7 @@ public class User  {
     private String lastName;
     private int number;
     private String address;
-
+//jasjdaj
     public User(String id, String username, String name, String lastName, int number, String address){
         super();
         this.id=id;
