@@ -1,22 +1,20 @@
 package com.test.proofs;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 
-import javax.lang.model.element.Name;
 import java.util.List;
 
-public interface UserRepository extends MongoRepository<User, String>{
+public  interface UserRepository extends MongoRepository<User, String>{
 
  User findByUsername(String username);
 
  User findByName(String Name);
 
- User SaveOrUpdate(User user);
+ User saveOrUpdateUserById(String id);
 
- User deleteUserByName(User user);
+ User deleteUserById(String id);
 
 
- List<User> findAllByName();
+ List<User> findAllByOrderByName();
 
 }
