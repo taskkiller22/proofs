@@ -14,7 +14,7 @@ public class User  {
     private String lastName;
     private int number;
     private String address;
-//jaja
+
     public User(String id, String username, String name, String lastName, int number, String address){
         super();
         this.id=id;
