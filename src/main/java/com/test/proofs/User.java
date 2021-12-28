@@ -5,21 +5,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Users")
 public class User  {
+
     @Id
-    private static String id;
+    private String id;
+
     private String username;
     private String name;
     private String lastName;
-    private int number;
     private String address;
+    private int number;
 
     public User(){
 
     }
 
-    public User(String id, String username, String name, String lastName, int number, String address){
+    public User(String username, String name, String lastName, int number, String address){
 
-        this.id=id;
         this.username=username;
         this.name=name;
         this.lastName=lastName;
@@ -77,14 +78,14 @@ public class User  {
 
     @Override
     public String toString(){
-        return "User{" +
+        return "User  [" +
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", name=" + name +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +
                 ", address=" + address +
-                '}';
+                ']';
     }
 
 
