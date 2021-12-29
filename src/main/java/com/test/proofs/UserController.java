@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api")
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
-
+/*
     @GetMapping("/users")
     public ResponseEntity<List<User>> GetAllUsers(@RequestParam(required = false) String name){
 
@@ -31,7 +31,7 @@ public class UserController {
         return null;
     }
     @PostMapping("/users")
-    public ResponseEntity<User> createTutorial(@RequestBody User user){
+    public ResponseEntity<User> createUSer(@RequestBody User user){
 
         return null;
     }
@@ -41,13 +41,13 @@ public class UserController {
         return null;
     }
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") String id) {
+    public ResponseEntity<HttpStatus> deleteUsers(@PathVariable("id") String id) {
 
         return null;
     }
 
     @DeleteMapping("/users")
-    public ResponseEntity<HttpStatus> deleteAllTutorials() {
+    public ResponseEntity<HttpStatus> deleteAllUser() {
 
         return null;
     }
@@ -57,6 +57,7 @@ public class UserController {
 
         return null;
     }
+    */
     @PostMapping("/user")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         try {
@@ -66,6 +67,7 @@ public class UserController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    /*
     @GetMapping("/user")
     public ResponseEntity<List<User>> getAllUsersByUsername(@RequestParam String username) {
         try {
@@ -85,6 +87,7 @@ public class UserController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    */
     @GetMapping("/user")
     public ResponseEntity<List<User>> getAllUsersByName(@RequestParam String name) {
         try {
@@ -105,8 +108,8 @@ public class UserController {
         }
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> getTutorialById(@PathVariable("id") String id) {
+    @GetMapping("/user/{id}")
+    public ResponseEntity<User> getUsersById(@PathVariable("id") String id) {
         Optional<User> userData = userRepository.findById(id);
 
         if (userData.isPresent()) {
@@ -116,8 +119,8 @@ public class UserController {
         }
     }
 
-    @PutMapping("/tutorials/{id}")
-    public ResponseEntity<User> updateTutorial(@PathVariable("id") String id, @RequestBody User user) {
+    @PutMapping("/user/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable("id") String id, @RequestBody User user) {
         Optional<User> userData = userRepository.findById(id);
 
         if (userData.isPresent()) {
@@ -131,7 +134,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/user/{id}")
     public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") String id) {
         try {
             userRepository.deleteById(id);
@@ -141,7 +144,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/users")
+    @DeleteMapping("/user")
     public ResponseEntity<HttpStatus> deleteAllUsers() {
         try {
             userRepository.deleteAll();
