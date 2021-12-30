@@ -25,4 +25,25 @@ public class UserController {
       return userservice.getAllUsers();
 
     }
+
+    @GetMapping("/users/{id}")
+    public @ResponseBody List<User> GetAllUsersById(User id){
+
+        return userservice.getAllUsersById(id);
+
+    }
+
+    @GetMapping("/users/{username}")
+    public @ResponseBody List<User> GetAllUsersByUsername(String username){
+
+        return userservice.getAllUsersByUsername(username);
+
+    }
+
+    @GetMapping("/Users/{name}")
+    public @ResponseBody List<User> GetAllUsersByName(String name){
+
+        return userservice.getAllUsersByName(name);
+
+    }
 }

@@ -23,9 +23,9 @@ public class UserService {
     }
 
 
-    public void updateUserByName (String name, User updateUser){
+    public void updateUserByName (String name, User User){
 
-        userRepository.save(updateUser);
+        userRepository.save(User);
     }
 
 
