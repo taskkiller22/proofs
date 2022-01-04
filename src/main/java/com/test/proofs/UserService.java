@@ -1,5 +1,6 @@
 package com.test.proofs;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class UserService {
     UserRepository userRepository;
 
 
-    public void createUser(User user){
+    public void createUser(@NotNull User user){
         userRepository.save(new User(user.getName(), user.getName(), user.getLastName(), user.getNumber(), user.getAddress()));
     }
 
