@@ -14,17 +14,17 @@ public class UserService {
 
 
     public void createUser(User user){
-        userRepository.save(new User(user.getName(), user.getUsername(), user.getLastName(), user.getNumber(), user.getAddress()));
+        userRepository.save(new User(user.getName(), user.getName(), user.getLastName(), user.getNumber(), user.getAddress()));
     }
 
 
-    public void deleteUserById (String id){
+    public void deleteUserByID (String id){
+
         userRepository.deleteById(id);
     }
 
 
-    public void updateUserByName (String name, User User){
-
+    public void updateUser (User User){
         userRepository.save(User);
     }
 

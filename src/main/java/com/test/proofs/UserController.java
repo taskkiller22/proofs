@@ -3,15 +3,12 @@ package com.test.proofs;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8080")
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -19,31 +16,46 @@ public class UserController {
     @Autowired
     UserService userservice;
 
-    @GetMapping("/users")
+    @GetMapping("/usersAll")
     public @ResponseBody List<User> GetAllUsers(){
 
       return userservice.getAllUsers();
 
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/usersID/{id}")
     public @ResponseBody List<User> GetAllUsersById(User id){
 
         return userservice.getAllUsersById(id);
 
     }
 
-    @GetMapping("/users/{username}")
+    @DeleteMapping ("/usersDeleteID/{id}")
+    public @ResponseBody void deleteUserById (User id){
+
+    }
+
+    @PutMapping("/usersDeleteID/{name}")
+    public @ResponseBody void updateUserByName(User name){
+
+    }
+
+    @GetMapping("/usersUsername/{username}")
     public @ResponseBody List<User> GetAllUsersByUsername(String username){
 
         return userservice.getAllUsersByUsername(username);
 
     }
 
-    @GetMapping("/Users/{name}")
+    @GetMapping("/UsersName/{name}")
     public @ResponseBody List<User> GetAllUsersByName(String name){
 
         return userservice.getAllUsersByName(name);
+
+    }
+
+    @PostMapping("/UsersCreate")
+    public @ResponseBody void createUser(User user){
 
     }
 }
