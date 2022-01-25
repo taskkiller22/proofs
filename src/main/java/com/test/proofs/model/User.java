@@ -1,40 +1,26 @@
-package com.test.proofs;
+package com.test.proofs.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+
 
 @Document(collection = "Users")
 public class User  {
-
     @Id
     private String id;
-
     private String username;
     private String name;
     private String lastName;
+    private String number;
     private String address;
-    private int number;
 
-    public User(){
 
-    }
 
-    public User(String username, String name, String lastName, int number, String address){
+    public String getId() {return id;}
 
-        this.username=username;
-        this.name=name;
-        this.lastName=lastName;
-        this.number=number;
-        this.address=address;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) {this.id = id;}
 
     public String getUsername() {
         return username;
@@ -60,11 +46,11 @@ public class User  {
         this.lastName = lastName;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -76,10 +62,20 @@ public class User  {
         this.address = address;
     }
 
+
+
+    public User(String id, String username, String name, String lastName, String number, String address){
+        this.id=id;
+        this.username=username;
+        this.name=name;
+        this.lastName=lastName;
+        this.number=number;
+        this.address=address;
+    }
+
     @Override
     public String toString(){
         return "User  [" +
-                "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", name=" + name +
                 ", lastName='" + lastName + '\'' +
@@ -87,8 +83,6 @@ public class User  {
                 ", address=" + address +
                 ']';
     }
-
-
 
 
 
